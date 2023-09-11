@@ -4,7 +4,7 @@ all my customized linux dotfiles (as of 11/9/2023) in one place so i can use thi
 With a script that puts all the configs in their places
 
 ## Dependacies:
-pacman -S zsh neofetch unzip
+pacman -S zsh neofetch unzip eza doas
 
 ## Oh My Zsh Install Script:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
