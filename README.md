@@ -6,6 +6,8 @@ With a script that puts all the configs in their places
 ## Dependacies:
 pacman -S zsh neofetch unzip eza doas
 
+for doas you need to add "permit persist :wheel" to "/etc/doas.conf"
+
 ## Oh My Zsh Install Script:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
