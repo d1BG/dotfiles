@@ -15,6 +15,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls="eza --icons -h --no-time --no-filesize"
 alias sudo="doas"
 alias sudoedit='doas rnano'
+alias ip='ip -c'
 
 neofetch
 
