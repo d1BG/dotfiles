@@ -62,5 +62,6 @@ echo "Copying plugins"
 cp omz/plugins/plugins.zip ~/.oh-my-zsh/custom/plugins/
 cd ~/.oh-my-zsh/custom/plugins/
 unzip -qq plugins.zip
+fast-theme zdharma
 rm plugins.zip
 
