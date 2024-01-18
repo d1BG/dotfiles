@@ -12,7 +12,9 @@ mangohud gets configs so u might want to install it
 ## Download and run script:
 
 git clone 'https://github.com/d1BG/dotfiles'
+
 chmod u+x dotfiles/DotFiles.sh
+
 ./dotfiles/DotFiles.sh
 
 ## Oh My Zsh Install Script:
