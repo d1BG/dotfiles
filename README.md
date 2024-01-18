@@ -1,18 +1,19 @@
 # deni111BG's dot files
-all my customized linux dotfiles (as of 11/9/2023) in one place so i can use this repo to reproduce my system
-
-With a script that puts all the configs in their places
+All my custom linux dotfiles (as of 1/18/2024) in one place
+With a script that puts all the configs in their places (that i hope works)
 
 ## Dependacies:
-pacman -S curl git zsh neofetch unzip eza doas kitty
+pacman -S curl git zsh neofetch unzip btop eza kitty imagemagick
 
-for doas you need to add "permit persist :wheel" to "/etc/doas.conf"
+### Optional:
+yay is recommended
+mangohud gets configs so u might want to install it
+
 ## Download and run script:
 
 git clone 'https://github.com/d1BG/dotfiles'
-cd dotfiles
-chmod u+x DotFiles.sh
-./DotFiles.sh
+chmod u+x dotfiles/DotFiles.sh
+./dotfiles/DotFiles.sh
 
 ## Oh My Zsh Install Script:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
