@@ -7,6 +7,7 @@ pacman -S curl git zsh neofetch unzip btop eza kitty imagemagick
 
 ### Optional:
 yay is recommended
+
 mangohud gets configs so u might want to install it
 
 ## Download and run script:
