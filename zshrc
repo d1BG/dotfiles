@@ -19,6 +19,7 @@ alias htop='btop'
 alias df='df -h'
 alias yaya='yay'
 alias neofetch='neofetch --size 450'
+alias clear='clear && neofetch'
 
 # Lets not forget the most important part
 neofetch
