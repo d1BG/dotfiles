@@ -13,6 +13,7 @@ echo "[5] Frieren           (Sousou no Frieren)"
 echo "[6] Ninomae Ina'nis   (Hololive)"
 echo "[7] Xianyun           (Genshin Impact)"
 echo "[8] Hoshimachi Suisei (Hololive)"
+echo "[9] Uruha Rushia      (Hololive)"
 
 read -p "Choose a theme: " theme
 
@@ -59,6 +60,8 @@ elif [ $theme -eq 7 ]; then
     cp neofetch/xianyun/* ~/.config/neofetch/
 elif [ $theme -eq 8 ]; then
     cp neofetch/suisei/* ~/.config/neofetch/
+elif [ $theme -eq 9 ]; then
+    cp neofetch/rushia/* ~/.config/neofetch/
 else
     echo "No such theme"
 fi
@@ -109,6 +112,8 @@ elif [ $theme -eq 7 ]; then
     cp omz/themes/xianyun-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
 elif [ $theme -eq 8 ]; then
     cp omz/themes/suisei-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+elif [ $theme -eq 9 ]; then
+    cp omz/themes/rushia-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
 fi
 
 echo "Copying zshrc file"
