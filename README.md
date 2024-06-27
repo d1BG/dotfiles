@@ -1,5 +1,6 @@
 # deni111BG's dot files
 All my custom linux dotfiles (as of 6/27/2024) in one place
+
 With a script that puts all the configs in their places (that i hope works)
 
 ## Dependacies:
@@ -9,7 +10,9 @@ With a script that puts all the configs in their places (that i hope works)
 
 ## Things u might wanna change after install:
 Display name in `~/.config/waybar/config.jsonc`
+
 Display name in `~/.config/hypr/hyprland.conf`
+
 Wallpaper dir in `~/.config/hypr/hyprpaper.conf`
 
 Install a nerd font -> nerd icons are used both in fetch script and in waybar
