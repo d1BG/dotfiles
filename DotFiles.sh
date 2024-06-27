@@ -23,7 +23,7 @@ case $fetch in
     ;;
   F | fastfetch)
     echo "You will be using Nakiri Ayame Theme (Hololive)"
-    $theme = fastfetch
+    export theme="fastfetch"
     ;;
   * )
     echo "Invalid response";
@@ -61,7 +61,7 @@ echo "Copying Fetch config for $fetch"
 
 case $theme in
 fastfetch ) 
-  cp fastfetch ~/.config/.
+  cp -r fastfetch ~/.config/.
   ;;
 1|3 )
   mkdir ~/.config/neofetch
