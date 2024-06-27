@@ -27,9 +27,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ### Why is (blank) a dependacy?
 unzip is used to unpack zsh plugins cuz a folder of plugins is way too many files for me to upload to github
+
 yay is there cuz i use it as AUR helper and hyprpicker is from aur
+
 hyprpicker -> used in my screenshot screen to freeze the screen
+
 grim, slurp and swappy -> all used for screenshotting
+
 mangohud ? idk i had configs for it so i uploaded them
+
 chafa/imagemagick -> img in term
+
 curl ? -> OMZ install script
