@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# sudo pacman -S curl git zsh fastfetch unzip btop eza foot imagemagick chafa mangohud hyprland waybar rofi zsh
 
 echo "What do you want to use? Fastfetch or Neofetch?"
 echo "(note that fastfetch only has 1 theme and neofetch has 9)"
@@ -57,39 +56,50 @@ cp -r waybar ~/.config/.
 cp -r rofi ~/.config/.
 cp -r btop ~/.config/. 
 cp -r foot ~/.config/. 
-c
+
 echo "Copying Fetch config for $fetch"
 
 case $theme in
-1|3|fastfetch )
+fastfetch ) 
+  cp fastfetch ~/.config/.
+  ;;
+1|3 )
+  mkdir ~/.config/neofetch
   cp neofetch/nakiri/* ~/.config/neofetch/
   ;;
 
 2 )
+  mkdir ~/.config/neofetch
   cp neofetch/raiden/* ~/.config/neofetch/
   ;;
 
 4 )
+  mkdir ~/.config/neofetch
   cp neofetch/navia/* ~/.config/neofetch/
   ;;
 
 5 )
+  mkdir ~/.config/neofetch
   cp neofetch/frieren/* ~/.config/neofetch/
   ;;
 
 6 )
+  mkdir ~/.config/neofetch
   cp neofetch/ninomae/* ~/.config/neofetch/
   ;;
 
-7 )
+7 ) 
+  mkdir ~/,config/neofetch 
   cp neofetch/xianyun/* ~/.config/neofetch/
   ;;
 
-8 ) 
+8 )
+  mkdir ~/,config/neofetch 
   cp neofetch/suisei/* ~/.config/neofetch/
   ;;
 
 9 )
+  mkdir ~/,config/neofetch 
   cp neofetch/rushia/* ~/.config/neofetch/
   ;;
 
