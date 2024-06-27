@@ -3,7 +3,7 @@ All my custom linux dotfiles (as of 1/18/2024) in one place
 With a script that puts all the configs in their places (that i hope works)
 
 ## Dependacies:
-pacman -S curl git zsh neofetch unzip btop eza kitty imagemagick
+`sudo pacman -S curl git zsh fastfetch unzip btop eza foot imagemagick chafa mangohud hyprland waybar rofi-wayland zsh grim slurp hyprpicker wl-clipboard swappy`
 
 ### Optional:
 yay is recommended
@@ -21,5 +21,5 @@ chmod u+x dotfiles/DotFiles.sh
 ## Oh My Zsh Install Script:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-### y is unzip a dependacie?
+### Why is unzip a dependacy?
 unzip is used to unpack zsh plugins cuz a folder of plugins is way too many files for me to upload to github 
