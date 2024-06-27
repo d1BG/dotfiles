@@ -1,0 +1,87 @@
+{
+ "logo": {
+   "source": "/home/deni111bg/.config/fastfetch/out.sixel",
+   "type": "raw",
+   "width": 40,
+   "height": 21
+   },
+  "display": {
+    "color": "red",
+    "disableLinewrap": true,
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\u001b[0m┌──────────────────────────────────────┐"
+    },
+    {
+      "type": "os",
+      "key": "  Distro / OS\u001b[38;5;15m  ",
+    },
+    {
+      "type": "host",
+      "key": "  Motherboard\u001b[38;5;15m  "
+    },
+    {
+      "type": "kernel",
+      "key": "  Kernel\u001b[38;5;15m  "
+    },
+    {
+      "type": "uptime",
+      "key": "  Uptime\u001b[38;5;15m  "
+    },
+    {
+      "type": "packages",
+      "key": "  Packages\u001b[38;5;15m 󰏗 "
+    },
+    {
+      "type": "shell",
+      "key": "  Shell\u001b[38;5;15m  "
+    },
+    {
+      "type": "lm",
+      "key": "  DM\u001b[38;5;15m  "
+    },
+    {
+      "type": "wm",
+      "key": "  WM\u001b[38;5;15m  "
+    },
+    {
+      "type": "terminal",
+      "key": "  Terminal\u001b[38;5;15m  "
+    },
+    {
+      "type": "cpu",
+      "key": "  CPU\u001b[38;5;15m  "
+    },
+    {
+      "type": "cpuusage",
+      "key": "  CPU Usage\u001b[38;5;15m  "
+    },
+    {
+      "type": "gpu",
+      "key": "  GPU\u001b[38;5;15m 󰊚 "
+    },
+    {
+      "type": "memory",
+      "key": "  Memory\u001b[38;5;15m  "
+    },
+    {
+      "type": "swap",
+      "key": "  Swap\u001b[38;5;15m  "
+    },
+    {
+      "type": "disk",
+      "key": "  Disk\u001b[38;5;15m  "
+    },
+    {
+      "type": "media",
+      "key": "  Media\u001b[38;5;15m  "
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[0m└───────────────────── \u001b[38;5;8m \u001b[38;5;9m \u001b[38;5;10m \u001b[38;5;11m \u001b[38;5;12m \u001b[38;5;13m \u001b[38;5;14m \u001b[38;5;15m \u001b[0m┘"
+    },
+
+  ]
+}

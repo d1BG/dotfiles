@@ -1,29 +1,41 @@
 #!/bin/bash
 
+# sudo pacman -S curl git zsh fastfetch unzip btop eza foot imagemagick chafa mangohud hyprland waybar rofi zsh
 
+echo "What do you want to use? Fastfetch or Neofetch?"
+echo "(note that fastfetch only has 1 theme and neofetch has 9)"
+read -p "Choose (N | F): " fetch
 
 # Themes
+case $fetch in 
+  N | neofetch) 
+    echo "Themes:"
+    echo "[1] Nakiri Ayame      (Hololive)"
+    echo "[2] Raiden Shogun     (Genshin Impact)"
+    echo "[3] Hutao             (Genshin Impact)"
+    echo "[4] Navia             (Genshin Impact)"
+    echo "[5] Frieren           (Sousou no Frieren)"
+    echo "[6] Ninomae Ina'nis   (Hololive)"
+    echo "[7] Xianyun           (Genshin Impact)"
+    echo "[8] Hoshimachi Suisei (Hololive)"
+    echo "[9] Uruha Rushia      (Hololive)"
 
-echo "Themes:"
-echo "[1] Nakiri Ayame      (Hololive)"
-echo "[2] Raiden Shogun     (Genshin Impact)"
-echo "[3] Hutao             (Genshin Impact)"
-echo "[4] Navia             (Genshin Impact)"
-echo "[5] Frieren           (Sousou no Frieren)"
-echo "[6] Ninomae Ina'nis   (Hololive)"
-echo "[7] Xianyun           (Genshin Impact)"
-echo "[8] Hoshimachi Suisei (Hololive)"
-echo "[9] Uruha Rushia      (Hololive)"
-
-read -p "Choose a theme: " theme
-
+    read -p "Choose a theme: " theme
+    ;;
+  F | fastfetch)
+    echo "You will be using Nakiri Ayame Theme (Hololive)"
+    $theme = fastfetch
+    ;;
+  * )
+    echo "Invalid response";
+    exit 1;;
+esac
 
 # MangoHud
 
 echo "Mangohud config: big includes all cores and other details, small does not"
-mkdir ~/.config/MangoHud
 read -p "Mangohud Config (big/small):" mangohudconf
-
+mkdir ~/.config/MangoHud
 
 # Copy-Paste
     # Mangohud
@@ -39,37 +51,52 @@ small|SMALL|Small )
     exit 1;;
 esac
 
-echo "Copying theme files into ~/.config/neofetch"   # I should have done those with in a case,
-                                                     # but i already did it the messy way and its
-                                                     # a personal script so I aint rewritting it,
-                                                     # its good enough
-    # Neofetch
-if [ $theme -eq 1 ]; then
-    cp neofetch/nakiri/* ~/.config/neofetch/
-elif [ $theme -eq 2 ]; then
-    cp neofetch/raiden/* ~/.config/neofetch/
-elif [ $theme -eq 3 ]; then
-    cp neofetch/hutao/* ~/.config/neofetch/
-elif [ $theme -eq 4 ]; then
-    cp neofetch/navia/* ~/.config/neofetch/
-elif [ $theme -eq 5 ]; then
-    cp neofetch/frieren/* ~/.config/neofetch/
-elif [ $theme -eq 6 ]; then
-    cp neofetch/ninomae/* ~/.config/neofetch/
-elif [ $theme -eq 7 ]; then
-    cp neofetch/xianyun/* ~/.config/neofetch/
-elif [ $theme -eq 8 ]; then
-    cp neofetch/suisei/* ~/.config/neofetch/
-elif [ $theme -eq 9 ]; then
-    cp neofetch/rushia/* ~/.config/neofetch/
-else
-    echo "No such theme"
-fi
+echo "Copying Hyprland/Waybar/Rofi/Foot/Btop configs"
+cp -r hypr ~/.config/.
+cp -r waybar ~/.config/.
+cp -r rofi ~/.config/.
+cp -r btop ~/.config/. 
+cp -r foot ~/.config/. 
+c
+echo "Copying Fetch config for $fetch"
 
-    # Kitty & Nano Configs
+case $theme in
+1|3|fastfetch )
+  cp neofetch/nakiri/* ~/.config/neofetch/
+  ;;
 
-cp kitty/kitty.conf ~/.config/kitty/kitty.conf
-cp nanorc ~/.zshrc
+2 )
+  cp neofetch/raiden/* ~/.config/neofetch/
+  ;;
+
+4 )
+  cp neofetch/navia/* ~/.config/neofetch/
+  ;;
+
+5 )
+  cp neofetch/frieren/* ~/.config/neofetch/
+  ;;
+
+6 )
+  cp neofetch/ninomae/* ~/.config/neofetch/
+  ;;
+
+7 )
+  cp neofetch/xianyun/* ~/.config/neofetch/
+  ;;
+
+8 ) 
+  cp neofetch/suisei/* ~/.config/neofetch/
+  ;;
+
+9 )
+  cp neofetch/rushia/* ~/.config/neofetch/
+  ;;
+
+* )
+  echo "no such theme or invalid response"
+  exit 1;;
+esac 
 
 # Zsh/OMZ Configs
 
@@ -95,26 +122,46 @@ n|N )
     exit 1;;
 esac
 
-echo "Copying theme files into ~/.oh-my-zsh/custom/themes/"
-if [ $theme -eq 1 ]; then
-    cp omz/themes/red-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 2 ]; then
-    cp omz/themes/purple-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 3 ]; then
-    cp omz/themes/red-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 4 ]; then
-    cp omz/themes/navia-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 5 ]; then
-    cp omz/themes/yellow-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 6 ]; then
-    cp omz/themes/ina-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 7 ]; then
-    cp omz/themes/xianyun-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 8 ]; then
-    cp omz/themes/suisei-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-elif [ $theme -eq 9 ]; then
-    cp omz/themes/rushia-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
-fi
+echo "Copying theme files into/.oh-my-zsh/custom/themes/"
+
+case $theme in
+1|3|fastfetch )
+  cp omz/themes/red-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+2 )
+  cp omz/themes/purple-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+4 )
+  cp omz/themes/navia-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+5 )
+  cp omz/themes/yellow-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+6 )
+  cp omz/themes/ina-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+7 )
+  cp omz/themes/xianyun-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+8 )
+  cp omz/themes/suisei-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+9 )
+  cp omz/themes/rushia-fox.zsh-theme ~/.oh-my-zsh/custom/themes/custom-fox.zsh-theme
+  ;;
+
+* )
+  echo invaild response;
+  exit 1;;
+esac
+
 
 echo "Copying zshrc file"
 cp ~/.zshrc ~/.zshrc.before-d1bg-dots

@@ -1,0 +1,168 @@
+* { 
+    all: unset;
+    border: none;
+    border-radius: 0;
+    font-family: JetBrains Mono;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @theme_base_color;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: @theme_text_color;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: @theme_text_color;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+#workspaces button {
+    padding: 0 0.7em;
+    background-color: transparent;
+    color: #f8f8f2;
+    box-shadow: inset 0 -3px transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #f8f8f2;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock{
+    padding: 0 10px;
+    margin: 6px 3px;
+    margin-right: 15;
+}
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-notification,
+
+
+#window{
+    padding: 0 10px;
+    margin: 6px 3px;
+    color: #f8f8f2;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 15;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #ffffff;
+    }
+}
+
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#memory {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#pulseaudio {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#pulseaudio.muted {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#temperature {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#temperature.critical {
+    background-color: #003e5d;
+    color: #ffffff;
+}
+
+#tray {
+    background-color: #003e5d
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#language {
+    background-color: #003e5d;
+    color: #ffffff;
+    padding: 0 5px;
+    margin: 6px 3px;
+    min-width: 16px;
+}
