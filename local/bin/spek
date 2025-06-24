@@ -1,0 +1,2 @@
+#!/bin/bash
+ffmpeg -hide_banner -i "$1" -lavfi showspectrumpic=s=960x540 -f image2pipe -vcodec png - 2> /dev/null | chafa --passthrough none -f sixel

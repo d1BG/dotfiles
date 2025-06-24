@@ -1,0 +1,112 @@
+@import "colors.css";
+
+* {
+  all: unset;
+  border: none;
+  border-radius: 15px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+window#waybar{
+    margin: 0px 5px 0 5px;
+}
+
+#workspaces button {
+  padding: 0px 10px;
+}
+
+#workspaces button:hover {
+    background-color: @background-color;
+}
+
+#workspaces button.active {
+    background-color: @background-color;
+}
+
+#window{
+  padding: 0 8px 0 8px;
+}
+
+.modules-center {
+  margin: 3 5px 3 0;
+}
+
+.modules-right {
+  margin: 3 5px 3 0;
+}
+
+.modules-left {
+  margin: 3 5px 3 0;
+}
+
+#battery,
+#power-profiles-daemon,
+#clock,
+#network,
+#temperature,
+#mpris,
+#language {
+  padding: 0px 10px 0px 10px;
+  margin: 0px 5px 0 5px;
+  background: @background-color;
+}
+
+#custom-gpu,
+#cpu,
+#memory,
+#pulseaudio{
+  padding: 0 15px 0px 10px;
+  margin: 0px 5px 0 5px;
+  background: @background-color;
+}
+
+
+
+#tray {
+  background: @background-color;
+  padding: 0 10 0 10;
+  margin: 0px 5px 0px 5px
+}
+
+#tray * menu {
+  background: @background-color;
+}
+
+#tray * menu menuitem {
+  padding: 5 50 5 10;
+}
+
+#tray * menu menuitem:first-child:hover {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#tray * menu menuitem:last-child:hover {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#tray * menu > separator{
+  background-color: @tray-background-color;
+  margin: 1 0 1 0;
+  padding: 1 0 1 0;
+}
+
+#tray * menu menuitem:hover {
+  background-color: @tray-background-color;
+  border-radius: 0;
+  padding: 5 25 5 25;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 1);
+  background: @background-color;
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: #ffffff;
+  font-size: 16px;
+}
