@@ -1,0 +1,2 @@
+# Intel CPU Power thingy
+ACTION=="add", SUBSYSTEM=="powercap", RUN+="/usr/bin/chmod o+r /sys/class/powercap/%k/energy_uj"
