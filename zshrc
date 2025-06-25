@@ -9,6 +9,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':fzf-tab:*' fzf-command fzf
 
 export PATH=$PATH:/home/deni111bg/.spicetify:/home/deni111bg/.local/bin
+export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,3 +42,12 @@ alias dwcconf='nvim ~/.config/dwc/config'
 alias niriconf='nvim ~/.config/niri/config.kdl'
 
 [ -n "$XDG_CURRENT_DESKTOP" ] && fastfetch
+
+function sudo() {
+  if [ "$1" = "nvim" ]; then
+    shift
+    command sudoedit "$@"
+  else
+    command sudo "$@"
+  fi
+}
