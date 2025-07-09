@@ -180,29 +180,29 @@ binds {
     Control+Escape {spawn "pkill" "-USR1" "waybar";}
     Mod+Tab { toggle-overview; } 
 
-    XF86AudioMicMute {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute";}
-    XF86AudioMute {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh mute";}
-    XF86AudioRaiseVolume { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh inc"; }
-    XF86AudioLowerVolume { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh dec"; }
-    Control+KP_Subtract { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute"; }
+    XF86AudioMicMute allow-when-locked=true {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute";}
+    XF86AudioMute allow-when-locked=true {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh mute";}
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh inc"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh dec"; }
+    Control+KP_Subtract allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute"; }
 
-    XF86MonBrightnessUp { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh up"; }    
-    XF86MonBrightnessDown { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh down"; }    
+    XF86MonBrightnessUp allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh up"; }    
+    XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh down"; }    
 
     XF86Calculator { spawn "qalculate-gtk"; }
 
-    Control+Shift+Prior { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh incVol"; }
-    Control+Shift+Next { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh decVol"; }
-    Control+Shift+Home { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
-    Control+Shift+End { spawn "sh" "-c"  "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
+    Control+Shift+Prior allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh incVol"; }
+    Control+Shift+Next allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh decVol"; }
+    Control+Shift+Home allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
+    Control+Shift+End allow-when-locked=true { spawn "sh" "-c"  "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
 
-    XF86AudioPause { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
-    XF86AudioPlay { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
-    XF86AudioNext { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
-    XF86AudioPrev { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
+    XF86AudioPause allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
+    XF86AudioPlay allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
+    XF86AudioNext allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
 
-    XF86TouchpadOn { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad  -t 2500 \"Touchpad On\""; }
-    XF86TouchpadOff { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad -t 2500 \"Touchpad Off\""; }
+    XF86TouchpadOn allow-when-locked=true { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad  -t 2500 \"Touchpad On\""; }
+    XF86TouchpadOff allow-when-locked=true { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad -t 2500 \"Touchpad Off\""; }
 
     Print { spawn "sh" "-c" "$HOME/.config/scripts/screenshot/screenshot.sh"; }
     Shift+Print { spawn "sh" "-c" "$HOME/.config/scripts/screenshot/full-screenshot.sh"; }
