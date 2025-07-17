@@ -104,8 +104,7 @@ spawn-at-startup "dunst"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "swayidle" "-w" "timeout" "300" "hyprlock"
-spawn-at-startup "sh" "-c" "swayidle -w timeout 270 'dunstify \"Screen will lock in 30s\"'"
+spawn-at-startup "hypridle"
 spawn-at-startup "sh" "-c" "wayvnc -f 30 -g -o eDP-1 -r 100.108.96.40 5900"
 
 window-rule {
