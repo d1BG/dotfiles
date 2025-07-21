@@ -94,7 +94,7 @@
         "format-muted": "{format_source} 󰝟",
         "format-source": "{volume}% ",
         "format-source-muted": "",
-        "on-click": "pavucontrol -t 1",
+        "on-click": "foot --app-id foot-pipemixer bash -c 'sleep 0.05; exec pipemixer'",
         "format-icons": {
             "default": ["", "", ""]
         }
