@@ -47,7 +47,7 @@
     "battery": {
         "format": "{}% {icon} ",
         "format-icons": ["", "", "", "", ""],
-	"on-click": "/home/deni111bg/.config/hypr/scripts/battery.sh"
+	"on-click": "/home/deni111bg/.config/scripts/battery-conservation.sh"
     },
     "clock": {
         "locale": "bg_BG.UTF-8",
