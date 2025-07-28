@@ -27,6 +27,7 @@ gestures {
 
 output "eDP-1" {
     mode "1920x1080@120.213"
+    variable-refresh-rate
     scale 1
     transform "normal"
     position x=0 y=0
