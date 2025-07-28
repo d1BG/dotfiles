@@ -48,6 +48,6 @@ function sudo() {
     shift
     command sudoedit "$@"
   else
-    command sudo "$@"
+    command sudo-rs -- "$@"
   fi
 }
