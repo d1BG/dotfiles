@@ -53,7 +53,7 @@ environment {
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
     QT_QPA_PLATFORMTHEME "qt6ct"
   // Xwayland-satellite
-    DISPLAY ":0"
+    DISPLAY ":3"
 }
 
 prefer-no-csd
@@ -102,7 +102,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "dunst"
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xwayland-satellite" ":3"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "hypridle"
