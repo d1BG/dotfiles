@@ -30,6 +30,17 @@ elif [[ "$item" =~ ^https:\/\/www.youtube.com\/watch\?v= ]]; then
     --optimize 9 \
     --view-size "${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
     --scale max
+# youtube music
+elif [[ "$item" =~ ^https:\/\/music.youtube.com\/watch\?v= ]]; then
+  url="${item#https://www.youtube.com/watch?v=}"
+  url="${url%%&*}"
+  curl --no-progress-meter "https://music.youtube.com/vi/$url/0.jpg" | chafa \
+    -f sixels \
+    --align center \
+    --scale max \
+    --optimize 9 \
+    --view-size "${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
+    --scale max
 # youtube
 elif [[ "$item" =~ ^https:\/\/youtu.be\/ ]]; then
   url="${item#https://youtu.be/}"
