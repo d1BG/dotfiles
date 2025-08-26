@@ -32,9 +32,9 @@ elif [[ "$item" =~ ^https:\/\/www.youtube.com\/watch\?v= ]]; then
     --scale max
 # youtube music
 elif [[ "$item" =~ ^https:\/\/music.youtube.com\/watch\?v= ]]; then
-  url="${item#https://www.youtube.com/watch?v=}"
+  url="${item#https://music.youtube.com/watch?v=}"
   url="${url%%&*}"
-  curl --no-progress-meter "https://music.youtube.com/vi/$url/0.jpg" | chafa \
+  curl --no-progress-meter "https://img.youtube.com/vi/$url/0.jpg" | chafa \
     -f sixels \
     --align center \
     --scale max \
