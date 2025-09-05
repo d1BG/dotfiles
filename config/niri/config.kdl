@@ -1,0 +1,277 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,bg"
+            variant ",phonetic"
+            options "grp:alt_shift_toggle"
+        }
+       numlock
+    }
+    mouse {
+        accel-speed -0.4
+        accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+    focus-follows-mouse max-scroll-amount="45%"
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+output "eDP-1" {
+    mode "1920x1080@120.213"
+    variable-refresh-rate
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+environment {
+  // Nvidia Moment
+    VDPAU_DRIVER "nvidia"
+    __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    LIBVA_DRIVER_NAME "nvidia"
+    GBM_BACKEND "nvidia-drm"
+    NVD_BACKEND "direct"
+  // Wayland
+    MOZ_ENABLE_WAYLAND "1"
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    SDL_VIDEODRIVER "wayland,x11"
+    CLUTTER_BACKEND "wayland" // I dont even have clutter apps
+    GDK_BACKEND "wayland"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+  // Themes
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+  // Xwayland-satellite
+    DISPLAY ":3"
+}
+
+prefer-no-csd
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 4
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
+    center-focused-column "never"
+
+    default-column-width { proportion 0.75; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        // off
+        width 4
+        active-color "#CBA6F7"
+        inactive-color "#505050"
+    } 
+    
+    preset-column-widths {
+        proportion 0.33
+        proportion 0.5
+        proportion 0.75
+    }
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "dunst"
+spawn-at-startup "xwayland-satellite" ":3"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "hypridle"
+spawn-at-startup "sh" "-c" "wayvnc -f 30 -g -o eDP-1 -r 100.108.96.40 5900"
+
+window-rule {
+    match app-id="foot-clipboard"
+    match app-id="foot-unicode"
+    match app-id="foot-7tv"
+    match app-id="blueman-manager"
+    match app-id="org.pulseaudio.pavucontrol"
+    match app-id="nm-connection-editor"
+    match app-id="qalculate-gtk"
+    baba-is-float true
+    open-floating true
+    open-focused true 
+    default-window-height { fixed 650; }
+    default-column-width { fixed 1200; }
+}
+
+layer-rule {
+    match namespace="rofi"
+    match namespace="notifications"
+    baba-is-float true
+}
+
+window-rule {
+    match app-id="librewolf" title="^Picture-in-Picture$"
+    match app-id="wev"
+    default-floating-position x=5 y=5 relative-to="top-right"
+    open-focused false 
+    open-floating true
+    default-window-height { fixed 300; }
+    default-column-width { fixed 510; }
+}
+
+
+window-rule {
+    match title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=5 y=5 relative-to="bottom-right"
+    open-focused false 
+}
+
+window-rule {
+    match app-id="EverestSplash-linux"
+    match app-id="steam_app_394360"
+    open-floating true
+}
+
+window-rule {
+    geometry-corner-radius 5 
+    clip-to-geometry true
+}
+
+clipboard {
+    disable-primary
+}
+
+switch-events {
+    lid-close { spawn "hyprlock"; }
+}
+
+binds {
+    Mod+Q { close-window; }
+    
+    Mod+T { spawn "foot"; }
+    Mod+E { spawn "cosmic-files"; }
+    Mod+A { spawn "rofi" "-show" "drun"; }
+    Mod+Shift+A { spawn "rofi" "-show" "window"; }
+    Mod+comma { spawn "rofimoji" "--action" "copy"; }
+    Mod+L { spawn "hyprlock"; }
+    Mod+F { spawn "librewolf" "--new-tab" "about:newtab"; }
+    Mod+Shift+F { spawn "librewolf"; }
+
+    Control+Escape {spawn "pkill" "-USR1" "waybar";}
+    Mod+Tab { toggle-overview; } 
+
+    XF86AudioMicMute allow-when-locked=true {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute";}
+    XF86AudioMute allow-when-locked=true {spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh mute";}
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh inc"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh dec"; }
+    Control+KP_Subtract allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/audio-control.sh micmute"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh up"; }    
+    XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/brightness-control.sh down"; }    
+
+    XF86Calculator { spawn "qalculate-gtk"; }
+
+    Control+Shift+Prior allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh incVol"; }
+    Control+Shift+Next allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh decVol"; }
+    Control+Shift+Home allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
+    Control+Shift+End allow-when-locked=true { spawn "sh" "-c"  "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
+
+    XF86AudioPause allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
+    XF86AudioPlay allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh play-pause"; }
+    XF86AudioNext allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "sh" "-c" "$HOME/.config/scripts/media/mediaPlayer.sh prev"; }
+
+    XF86TouchpadOn allow-when-locked=true { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad  -t 2500 \"Touchpad On\""; }
+    XF86TouchpadOff allow-when-locked=true { spawn "sh" "-c" "dunstify -h string:x-dunst-stack-tag:touchpad -t 2500 \"Touchpad Off\""; }
+
+    Print { spawn "sh" "-c" "$HOME/.config/scripts/screenshot/screenshot.sh"; }
+    Shift+Print { spawn "sh" "-c" "$HOME/.config/scripts/screenshot/full-screenshot.sh"; }
+   
+    Mod+V { spawn "foot" "--app-id" "foot-clipboard" "/home/deni111bg/.config/scripts/clipboard/cliphist-fzf-niri.sh"; }
+    Mod+Period { spawn "foot" "--app-id" "foot-unicode" "/home/deni111bg/.config/scripts/unicode/picker.sh"; }
+    Mod+Slash { spawn "foot" "--app-id" "foot-7tv" "/home/deni111bg/.config/scripts/7tv/7tv-browser.sh"; }
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    // Usually scrolling up and down with Shift in applications results in
+    // horizontal scrolling; these binds replicate that.
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+
+    // Switches focus between the current and the previous workspace.
+    Alt+Tab { focus-workspace-previous; }
+
+    Mod+D { switch-preset-column-width; }
+    Mod+R { maximize-column; }
+    Mod+F11 { fullscreen-window; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+W { toggle-window-floating; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+BackSpace { spawn "wlogout";}
+}

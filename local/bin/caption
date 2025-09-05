@@ -1,0 +1,11 @@
+#!/bin/bash
+captioned="${1%.*}-captioned.gif"
+
+width=$(ffprobe -v quiet -print_format json -show_streams "$1" | jq -r '.streams[0].width')
+height=$(ffprobe -v quiet -print_format json -show_streams "$1" | jq -r '.streams[0].height')
+new_height=$(ffprobe -v quiet -print_format json -show_streams "$1" | jq -r '(.streams[0].height * 1.25) | round')
+
+ffmpeg -i "$1" \
+    -hide_banner -loglevel error \
+    -vf "pad=width=$width:height=$new_height:x=0:y=($new_height-$height):color=white,drawtext=fontfile=/usr/share/fonts/TTF/JetBrainsMono-Regular.ttf:text='$2':x=(w-tw)/2:y=($new_height-$height)/3:fontsize=24:fontcolor=black,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+    -y "$captioned"

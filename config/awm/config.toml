@@ -1,0 +1,132 @@
+[startup]
+renderer = "auto"
+exec = [
+   "waybar -c ~/.config/waybar/awm-config.jsonc",
+]
+
+
+[[startup.env]]
+MOZ_ENABLE_WAYLAND = 1
+ELECTRON_OZONE_PLATFORM_HINT = "wayland"
+XDG_SESSION_TYPE = "wayland"
+
+
+[keyboard] # default keyboard layout, optional
+layout = "us,bg"
+model = "pc104"
+variant = ",phonetic"
+options = "grp:alt_shift_toggle"
+repeat_rate = 25
+repeat_delay = 600
+
+[pointer.mouse]
+natural_scroll = false
+left_handed = 0
+profile = "flat"
+accel_speed = --0.55
+
+[pointer.xcursor]
+theme = "Bibata-Modern-Classic"
+size = 24
+
+[binds]
+exit = "Logo Shift BackSpace"
+window.fullscreen = "F11"
+window.move = "Alt MouseLeft"
+window.close = "Alt q"
+workspace.tile = "Alt w"
+workspace.open = "Alt Number"
+workspace.window_to = "Control Shift Number"
+
+[[monitors]]
+name = "eDP-1"
+enabled = true
+width = 1920
+height = 1080
+refresh = 125
+#adaptive = true
+
+
+# Warning:
+# Scripts dont work in here, cuz i never bothered to fix them after moving my scripts into ~/.config/scripts
+
+
+[[commands]]
+bind = "Alt a"
+exec = "rofi -show drun"
+
+[[commands]] 
+bind = "Alt f"
+exec = "firefox"
+
+[[commands]] 
+bind = "Print"
+exec = "/home/deni111bg/.config/hypr/scripts/screenshot/screenshot.sh"
+
+[[commands]] 
+bind = "Shift Print"
+exec = "/home/deni111bg/.config/hypr/scripts/screenshot/full-screenshot.sh"
+
+[[commands]] 
+bind = "Alt t"
+exec = "foot"
+
+[[commands]]
+bind = "Alt e"
+exec = "cosmic-files"
+
+[[commands]]
+bind = "Alt Logo BackSpace"
+exec = "wlogout"
+
+[[commands]]
+bind = "XF86AudioPlay" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh play-pause" 
+
+[[commands]]
+bind = "XF86AudioPause" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh play-pause" 
+
+[[commands]]
+bind = "XF86AudioNext" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh next" 
+
+[[commands]]
+bind = "XF86AudioPrev" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh prev"
+
+[[commands]]
+bind = "Control Shift Home" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh next" 
+
+[[commands]]
+bind = "Control Shift End" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh prev"
+
+[[commands]]
+bind = "Control Shift Prior" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh incVol"
+
+[[commands]]
+bind = "Control Shift Next" 
+exec = "~/.config/hypr/scripts/media/mediaPlayer.sh decVol"
+
+[[commands]]
+bind = "Control Escape"
+exec = "killall waybar || waybar"
+
+[[commands]]
+bind = "Alt comma"
+exec = "rofimoji --action copy"
+
+[[commands]]
+bind = "Alt i"
+exec = "ani-cli --vlc --rofi"
+
+[[commands]]
+bind = "XF86AudioRaiseVolume" 
+exec = "~/.config/hypr/scripts/audio.sh inc" 
+
+[[commands]]
+bind = "XF86AudioLowerVolume" 
+exec = "~/.config/hypr/scripts/audio.sh dec" 

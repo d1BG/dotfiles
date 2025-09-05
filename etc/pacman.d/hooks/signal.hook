@@ -1,0 +1,10 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=signal-desktop
+
+[Action]
+Depends=bash
+When=PostTransaction
+Exec=/usr/bin/bash -c "/home/deni111bg/.config/scripts/signal-themer.sh"
